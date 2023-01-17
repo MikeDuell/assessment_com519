@@ -38,10 +38,10 @@ const authMiddleware = async (req, res, next) => {
   }
   next()
 }
-app.get("/create-adherence", authMiddleware, (req, res) => {
+app.get("/create-adherence", (req, res) => {
   res.render("create-adherence", { errors: {} });
 });
-app.get("/create-stirtank", authMiddleware, (req, res) => {
+app.get("/create-stirtank", (req, res) => {
   res.render("create-stirtank", { errors: {} });
 });
 
@@ -65,7 +65,7 @@ app.get("/adherences/update/:id", adherenceController.edit);
 app.post("/adherences/update/:id", adherenceController.update);
 
 const customerController = require("./controllers/customer");
-app.get("/customers", authMiddleware,  customerController.list)
+app.get("/customers",  customerController.list)
 app.get("/customers/delete/:id", customerController.delete)
 
 const stirtankController = require("./controllers/stirtank");
