@@ -58,7 +58,7 @@ app.set("view engine", "ejs");
 // route handlers
 
 const adherenceController = require("./controllers/adherence");
-app.get("/adherences", authMiddleware, adherenceController.list)
+app.get("/adherences", adherenceController.list)
 app.get("/adherences/delete/:id", adherenceController.delete)
 app.post("/create-adherence", adherenceController.create);
 app.get("/adherences/update/:id", adherenceController.edit);
@@ -69,7 +69,7 @@ app.get("/customers", authMiddleware,  customerController.list)
 app.get("/customers/delete/:id", customerController.delete)
 
 const stirtankController = require("./controllers/stirtank");
-app.get("/stirtanks", authMiddleware, stirtankController.list)
+app.get("/stirtanks", stirtankController.list)
 app.get("/stirtanks/delete/:id", stirtankController.delete)
 app.post("/create-stirtank", stirtankController.create);
 app.get("/stirtanks/update/:id", stirtankController.edit);
