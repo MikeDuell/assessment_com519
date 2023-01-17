@@ -44,10 +44,12 @@
                 
                 
                 <td>
+                  <% if (user) { %>
                   <a  href="/adherences/delete/<%= adherence._id %>" class="btn btn-danger btn-xs"> Del</a>
                 
                    <a  href="/adherences/update/<%= adherence._id %>" class="btn btn-primary btn-xs"> Update</a>
-                </td>
+                  <% } %>
+                  </td>
                 
                 
             </tr> <% }); %>

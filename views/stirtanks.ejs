@@ -39,13 +39,15 @@
             
                       
                       
-                      <td rows="3"><%=  stirtank.serialnumber %></td>
+                      <td><%=  stirtank.serialnumber %></td>
                       <td><%= stirtank.customer %></td>
                       <td><%= stirtank.location %></td>
                       <td class="text-center">
+                        <% if(user) { %>
                           <a  href="/stirtanks/delete/<%= stirtank._id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
                           <a  href="/stirtanks/update/<%= stirtank._id %>" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span> Update</a>
-                      </td>
+                          <% } %>
+                          </td>
                       
                   </tr> <% }); %>
                 
