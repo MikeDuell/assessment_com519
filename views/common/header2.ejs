@@ -2,33 +2,35 @@
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a class="nav-link active" href="../"></a> 
-        <a class= "px5 text-white"> <%=user.email%> </a>
-        <% if (user) { %>
-          <a href="logout" class = "nav-link px4 text-white">logout</a>
-        <% } %>
+        
+       
         
       
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="overview" class="nav-link px-4 text-white">Overview</a></li>
-          <li><a href="customers" class="nav-link px-4 text-white">Customers</a></li>
-          <li><a href="adherences" class="nav-link px-4 text-white">Adherence reactors</a></li>
-          <li><a href="stirtanks" class="nav-link px-4 text-white">Stir Tank Reactors</a></li>
-          <% if (user){ %>
-          <li><a href="create-stirtank" class="nav-link px-4 text-white">Add stir tank reactor</a></li>
-          <li><a href="create-adherence" class="nav-link px-4 text-white">Add adherence reactor</a></li>
-          <%}%>
-          </ul>
+          <li><a class= "p-4 text-green">logged in -  <%=user.email%> </a></li>
+          <% if (user) { %>
+            <li><a href="logout" class = "nav-link px3 text-white">logout</a></li>
+          <% } %>
 
-        <div class="text-end p-1">
-          <% if (!user)   { %>
-            <a href="signin" class="nav-link px-2 text-white">Sign in</a>
-           <% } %> 
-        </div>
-        <div>
+          <li><a href="overview" class="nav-link px-3 text-white">Overview</a></li>
+          <li><a href="customers" class="nav-link px-3 text-white">Customers</a></li>
+          <li><a href="adherences" class="nav-link px-3 text-white">Adherence reactors</a></li>
+          <li><a href="stirtanks" class="nav-link px-3 text-white">Stir Tank Reactors</a></li>
+          <% if (user){ %>
+          <li><a href="create-stirtank" class="nav-link px-3 text-white">Add stir tank reactor</a></li>
+          <li><a href="create-adherence" class="nav-link px-3 text-white">Add adherence reactor</a></li>
+          <%}%>
+          <% if (!user) { %>
+          <li><a href="signin" class="nav-link px-2 text-white">Sign in</a></li>
+          <%}%>
           <% if (user.email == "michael.duell@hotmail.com") { %>
-            <a href="join" class="nav-link px-2 text-white">Register</a>
+            <li><a href="join" class="nav-link px-2 text-white">Register</a></li>
             <% } %> 
-        </div>
+        
+        </ul>
+
+        
+        
       </div>
     </div>
   </header>
