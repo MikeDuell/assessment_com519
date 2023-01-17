@@ -3,9 +3,9 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a class="nav-link active" href="../"></a> 
         <a class= "px5 text-white"> <%=user.email%> </a>
-        
+        <% if (user) { %>
           <a href="logout" class = "nav-link px4 text-white">logout</a>
-       
+        <% } %>
         
       
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
