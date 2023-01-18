@@ -1,35 +1,32 @@
-<header class="p-3 text-bg-dark">
+<header class="p-1 text-bg-dark">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a class="nav-link active" href="../"></a> 
-        
-       
-        
-      
+        <a class="nav-link active" href="/"></a> 
+              
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a class= "p-4 text-green">logged in -  <%=user.email%> </a></li>
+          
           <% if (user) { %>
-            <li><a href="logout" class = "nav-link px3 text-white">logout</a></li>
+            <li><a href="logout" class = "nav-link text-white">logout</a></li>
           <% } %>
 
-          <li><a href="overview" class="nav-link px-3 text-white">Overview</a></li>
-          <li><a href="customers" class="nav-link px-3 text-white">Customers</a></li>
-          <li><a href="adherences" class="nav-link px-3 text-white">Adherence reactors</a></li>
-          <li><a href="stirtanks" class="nav-link px-3 text-white">Stir Tank Reactors</a></li>
+          <li><a href="overview" class="nav-link p-2 text-white">Overview</a></li>
+          <li><a href="customers" class="nav-link px-2 text-white">Customers</a></li>
+          <li><a href="adherences" class="nav-link px-2 text-white">Adherence reactors</a></li>
+          <li><a href="stirtanks" class="nav-link px-2 text-white">Stir Tank Reactors</a></li>
           <% if (user){ %>
-          <li><a href="create-stirtank" class="nav-link px-3 text-white">Add stir tank reactor</a></li>
-          <li><a href="create-adherence" class="nav-link px-3 text-white">Add adherence reactor</a></li>
+          <li><a href="create-stirtank" class="nav-link px-2 text-white">Add stir tank reactor</a></li>
+          <li><a href="create-adherence" class="nav-link px-2 text-white">Add adherence reactor</a></li>
           <%}%>
           <% if (!user) { %>
           <li><a href="signin" class="nav-link px-2 text-white">Sign in</a></li>
           <%}%>
           <% if (user.email == "michael.duell@hotmail.com") { %>
-            <li><a href="join" class="nav-link px-2 text-white">Register</a></li>
+            <li><a href="join" class="nav-link px-1 text-white">Register</a></li>
             <% } %> 
         
         </ul>
 
-        
+      
         
       </div>
     </div>

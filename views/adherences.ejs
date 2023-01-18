@@ -16,6 +16,7 @@
 <body>
     <%- include('common/header2'); -%>
     <h1 class="bg-danger text-center">Adherence Reactors</h1>
+    <h6 class= "text-secondary text-center bg-light">Current User ----   <%=user.email%></h6>
     <% if (message) { %>
       <div class="alert alert-secondary align-self-center" role="alert"  >
         <%= message %>
