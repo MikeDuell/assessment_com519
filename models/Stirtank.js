@@ -6,7 +6,7 @@ const stirtankSchema = new Schema(
 
     {
         size: String,
-        serialnumber: { type: String, required: [true, 'Serial number is required'], minlength: [10, 'name too short'] },
+        serialnumber: { type: String, required: [true, 'Serial number is required'], minlength: [2, 'name too short'] },
         cabinetserial: String,
         customer: {type: String, required:[true, 'Customer name is required'] } ,
         location: String,

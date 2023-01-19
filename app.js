@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const { WEB_PORT, MONGODB_URI } = process.env;
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
+
 app.use(expressSession({ secret: 'foo barr', cookie: { expires: new Date(253402300000000) } }))
 
 global.user = false
@@ -74,6 +75,9 @@ app.get("/stirtanks/delete/:id", stirtankController.delete)
 app.post("/create-stirtank", stirtankController.create);
 app.get("/stirtanks/update/:id", stirtankController.edit);
 app.post("/stirtanks/update/:id", stirtankController.update);
+
+const overviewController = require("./controllers/overview")
+app.get("/overview", overviewController.list);
 
 const userController = require("./controllers/user");
 const User = require("./models/User");
