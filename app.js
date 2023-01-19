@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false}))
 const authMiddleware = async (req, res, next) => {
   const user = await User.findById(req.session.userID);
   if (!user) {
-    return res.redirect('/');
+    return res.redirect('/overview');
   }
   next()
 }
@@ -96,7 +96,7 @@ app.post("/signin", userController.login);
 
 // render pages
 app.get("/", (req, res) => {
-  res.render("overview")
+  res.render("signin")
 });
 
 
