@@ -1,0 +1,88 @@
+# Title Page
+# Cover Page
+## Student Number : 152
+## Module : Com 519
+
+## Website link:
+
+## Github link: 
+
+
+# Section 1 - Introduction
+
+My company sells stir tank bioreactors to the biotech fraternity. As part of the lifecycle management of the systems, the software and hardware evolves as bugs are detected and rectified along with the addition of new features to the systems. As a company we pride ourselves in the ability to provide bespoke solutions to our customers, which forms a large part of our business.
+
+Recently it has been discovered that we now have many different systems that are in production across the world, but we have no system that provides information on the versions of software, hardware or any customisations. This led to the company manually having to search through documentation in order to create a list of all this information. This process was very time consuming, but because it in a excel spreadsheet format is hard to update and can only be done by the department managing this folder.
+
+This is the driver for my project. Providing a software solution that will enable the different departments to be access this information from anywhere, any time they need it. The software needs to be able to record the customer information, software and hardware revisions along with any customisations. This data also needs to be updated if the versions of software and hardware are updated at a customers site. The system needs user authentication to ensure that the system isn't accessed by unauthorised people.
+
+
+
+## Section 2 - System Overview
+### Data stores
+The public folder is used to place images and css files that are used in the code. Here i have an image of a bioreactor that is used on numerous webpages. Using the MVC model in this project, the models, views and controllers all have their own folders under the root. each of these folders contains the files are created for each individual views, models or controllers.
+
+For development environment I used a local mongodb database. For production environment I used a remote database cluster hosted by mongodb. I set the database up to have four different collections. They are the adherence bioreactors, stirtank bioreactors, customers and the user collections. ![](Screenshot 2023-01-18 122803.png)
+
+
+### Key views and interfaces
+The system comprises of different views and interfaces that are required to assist in the execution of the basic CRUD functionality of a database. The views can be sub divided into these four categories. 
+
+The first of involves creating a new entry into the database. The user interacts with a webpage by entering values into key fields in a form. This will in turn activate a route which the controller will use to pass the data onto the model. The model then updates the database if the validation passes, or sends an error messages back to the user interface if it fails.
+
+The second category involves displaying the information from the database in a format which the user can. comprehend. When the route is activated, the controller will return data from the model to the webpage, where it will be manipulated and displayed in a format the user can comprehend.
+
+The last two categories of views are the update and delete. The user interface for these categories are displayed on the read views in the form of buttons. From here routes are activated which will call the delete or update functions in the models by the controllers. The id is used to delete the desired document from the database. A user message is shown on the html page if the delete is successful.
+
+The update operation uses the id to obtain information from the database for the collection. A view is rendered that allows the user to enter new values into the fields of a form which is then sent via the relevant controller through the model to the database. The read view is then rendered where the data can be checked to see if the required field was successfully modified.
+
+
+### Key system components
+This system uses an MVC model architecture. The model is the part of the design patten that communicates with the mongo database. The API used to communicate with the database is mongoose. The schemas are created in the js files within the model's folders. This also provides a solution to validation in a "schema-less by design" database. 
+
+The controllers are the "glue" behind the application and contain various operations coded to carry out the CRUD functionality. The controller communicates with the models to perform these operations. For example, routes are coded so that the controller responds to an HTTP request by executing the desired operation and returning the data to be manipulated in the view through ejs module. Each collection in the database is serviced by its own model and controller, meaning that there are multiple controller and models in this system.
+
+Users of the system are asked to login, authenticating the user and creating a session with the use of express session middleware to set the global user variable. This is used to control access to the various parts of the system. If a user is not logged in the any form of operation that will change data in the database is disabled. When users are created the password is encrypted using bcrypt and md5 middleware.
+
+Express is an important component of this system as it is used to handle requests and  routing.
+
+
+
+
+
+
+
+
+## Section 3 - Key design decisions
+### Database Design
+I started the database design by determining the information that I felt is needed to be stored in the database to meet the requirements that I have set out. Starting with the collections, it was decided that the first collection would be the user collection. The user collection would just consist of a username as well as password fields. The username field would consist of unique validation as not to have more than one username in the system. The password would be assigned the minimum length validation. 
+
+The next collection would be for the stirtank bioreactors. The important fields here that will be used to identify the equipment would be the reactor serial number and the control cabinet serial number. Both of these fields will be assigned the unique validator as there should never be two pieces of equipment with the same serial number. further more there will be fields for the description of the customisations made to the equipment, fields to identify whether the changes are hardware, software or both. another important field is the software and hardware revision of the reactors.  These fields have no validators. The bioreactor size is also included here.
+
+The Adherence reactors have the same collections and fields as the stir tank reactors apart from the size field, as the adherence bioreactors only come in one size. The validators are also the same as the adherence reactors.
+
+
+### Security and Scalability
+
+One of the main advantages when it comes to scalability of this application is the use of asynchronous processes. Asynchronous processes are divided into different steps where the one step isn't reliant on the others steps in order to be started or completed. This method of processing removes many of the obstacles that affect the performance of large scale software.
+
+When it came to the views scalability wasn't taken into account. Being a proof of concept I dont have large amounts of data that will be stored in the database collections. It is for this reason that using tools such as pagination was not used to display large amounts of data. There is also no limit imposed on the amount of data that the system would read from any collection within the database at one time. 
+
+Another factor that was taken into account when it comes to scalability is the adding of new users. In the environment that this application will be used, the users will be changing all the time as employees of the company come and go. There is an admin user that can be logged into in order to add users to the user collection in the database. This is also there for added security as you don't want just anyone to be able to add a user account. The information in the database is critical to operations and unauthorised use could lead to data being deleted, changed or could assist a competitor in gaining valuable insight into our business dealings. 
+
+Security is enhanced by hashing the password an amount of ten times before it is stored in the database. When no user logged in the system will only allow views of the customer, adherence reactors and stir tank reactors pages. Update, create and delete features of the application are disabled when there is no user is logged in. 
+
+
+
+# Section 4 - Conclusion and reflection
+
+I believe that the outcome of this project to be fairly successful. The software meets the requirements as set out in the beginning of the project, but definitely would need to be improved if it were to be implemented. The CRUD operations are all executed well, with important information being stored in the database. Due to the tight time schedule along with the many obstacles faced during this project, certain functionality was skipped over.
+
+The first functionality skipped over I would liked to have added is the customers collection. Adding additional aggregation operations could obtain valuable information such as amount of units a customer has with the software and hardware revisions. Customisations could be added to this too for greater usability.
+
+I tried to do was add data visualisation using chart.js but unfortunately this was not very successful as I couldn't get the variables that are available on the overview page to pull into the array in the chart function. So although the chart is operational, it is not connected to real data. 
+ 
+Challenges arose along the way, the biggest being not being able to deploy my application. I was forced to restart a brand new project and install all of the modules needed from scratch. This is the reason I have multiple versions of the project in my GitHub repo's. 
+
+
+
