@@ -4,11 +4,10 @@
 ## Module : Com 519
 
 ## Website link:
-https://fair-cyan-agouti-gear.cyclic.app/customers
 
 
 ## Github link:
-Final V2 repo - https://github.com/MikeDuell/assessment_com519.git
+Final repo - https://github.com/MikeDuell/assessment_com519.git
 
 v1 of repo - https://github.com/MikeDuell/com519.git
 
@@ -47,11 +46,9 @@ This system uses an MVC model architecture. The model is the part of the design 
 
 The controllers are the "glue" behind the application and contain various operations coded to carry out the CRUD functionality. The controller communicates with the models to perform these operations. For example, routes are coded so that the controller responds to an HTTP request by executing the desired operation and returning the data to be manipulated in the view through ejs module. Each collection in the database is serviced by its own model and controller, meaning that there are multiple controller and models in this system.
 
-Views are managed by a software module that is installed in the way of ejs. This module allows for dynamic web pages as javascript can be embedded into the html allowing for variables to be used to control logis and display results.
-
 Users of the system are asked to login, authenticating the user and creating a session with the use of express session middleware to set the global user variable. This is used to control access to the various parts of the system. If a user is not logged in the any form of operation that will change data in the database is disabled. When users are created the password is encrypted using bcrypt and md5 middleware.
 
-
+Express is an important component of this system as it is used to handle requests and  routing.
 
 
 
@@ -70,6 +67,7 @@ The Adherence reactors have the same collections and fields as the stir tank rea
 
 
 ### Security and Scalability
+
 One of the main advantages when it comes to scalability of this application is the use of asynchronous processes. Asynchronous processes are divided into different steps where the one step isn't reliant on the others steps in order to be started or completed. This method of processing removes many of the obstacles that affect the performance of large scale software.
 
 When it came to the views scalability wasn't taken into account. Being a proof of concept I dont have large amounts of data that will be stored in the database collections. It is for this reason that using tools such as pagination was not used to display large amounts of data. There is also no limit imposed on the amount of data that the system would read from any collection within the database at one time. 
@@ -81,6 +79,7 @@ Security is enhanced by hashing the password an amount of ten times before it is
 
 
 # Section 4 - Conclusion and reflection
+
 I believe that the outcome of this project to be fairly successful. The software meets the requirements as set out in the beginning of the project, but definitely would need to be improved if it were to be implemented. The CRUD operations are all executed well, with important information being stored in the database. Due to the tight time schedule along with the many obstacles faced during this project, certain functionality was skipped over.
 
 The first functionality skipped over I would liked to have added is the customers collection. Adding additional aggregation operations could obtain valuable information such as amount of units a customer has with the software and hardware revisions. Customisations could be added to this too for greater usability.
@@ -89,7 +88,7 @@ I tried to do was add data visualisation using chart.js but unfortunately this w
 
 For future use i would look at being able to add pdf files so that the drawings can be accessed from the application, making life easier for the field service team.
  
-Challenges arose along the way, the biggest being not being able to deploy my application on two separate occassions. I was forced to restart a brand new project(using the ejs and js files i authored already) and install all of the modules needed from scratch. This is the reason I have multiple versions of the project in my GitHub repo's which I have added for version control. 
+Challenges arose along the way, the biggest being not being able to deploy my application. I was forced to restart a brand new project and install all of the modules needed from scratch. This is the reason I have multiple versions of the project in my GitHub repo's. 
 
 
 

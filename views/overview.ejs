@@ -47,10 +47,11 @@
             </tr>
           </thead>
           <tbody>
+            <% if (stirtankgroups) {%>
              <% stirtankgroups.forEach(function(stirtype){ %>
              <td><%=  stirtype._id %></td>
              <td><%=  stirtype.total_types%></td>
-             </tr> <% }); %>
+             </tr> <% })}; %>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
       </div>

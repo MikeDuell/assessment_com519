@@ -22,7 +22,7 @@ app.use('*', async(req, res, next) => {
   app.get("/logout", async (req, res) => {
     req.session.destroy();
     global.user = false;
-    res.redirect('/');
+    res.redirect('/overview');
   })
 
 // middleware
@@ -98,9 +98,7 @@ app.post("/signin", userController.login);
 app.get("/", (req, res) => {
   res.render("overview")
 });
-app.get("/overview", (req, res) => {
-  res.render("overview")
-});
+
 
 app.get("/stirtanks", (req, res) => {
   res.render("stirtanks")

@@ -15,7 +15,7 @@ exports.login = async (req, res) => {
             req.session.userID = user._id;
             console.log("user authenticated")
             console.log(req.session.userID);
-            res.redirect('/');
+            res.redirect('/overview');
             return
         }
         console.log("not password")
