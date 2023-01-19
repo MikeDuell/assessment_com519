@@ -20,7 +20,7 @@
           <% if (!user) { %>
           <li><a href="signin" class="nav-link px-2 text-white">Sign in</a></li>
           <%}%>
-          <% if (user.email == "michael.duell@hotmail.com") { %>
+          <% if (user.email == "michael.duell@hotmail.com" || user.email == "admin@admin.com") { %>
             <li><a href="join" class="nav-link px-1 text-white">Register</a></li>
             <% } %> 
         
